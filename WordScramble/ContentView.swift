@@ -29,9 +29,11 @@ struct ContentView: View {
           TextField("Enter your word", text: $newWord, onCommit: addNewWord)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding()
+        .autocapitalization(.none)
           
           List(usedWords, id: \.self) {
-              Text($0)
+            Image(systemName: "\($0.count).circle")
+            Text($0)
           }
       }
    
