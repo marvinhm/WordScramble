@@ -20,13 +20,16 @@ struct ContentView: View {
     NavigationView {
       
       VStack {
-        HStack {
-          Button("New", action: startGame)
-        }
-          TextField("Enter your word", text: $newWord, onCommit: addNewWord)
+        
+        TextField("Enter your word", text: $newWord, onCommit: addNewWord)
         .textFieldStyle(RoundedBorderTextFieldStyle())
         .padding()
         .autocapitalization(.none)
+        .navigationBarItems(leading:
+          HStack {
+            Button("New", action: startGame)
+          }
+        )
           
           List(usedWords, id: \.self) {
             Image(systemName: "\($0.count).circle")
